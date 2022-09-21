@@ -1,21 +1,19 @@
 #include <xc.h>
 .data
 .align   
-helloString:                                                                     
-       .asciz "Hello World\n"       
+// Memory declarations go here.
 .text
 .align
        
 /********************************************************************/
 .global asmFunction
-
+// Notice: NO signature for this function!
 asmFunction:
-
-//   ldr R1, = helloString
-//   ldr r0,[r1]
    
-   mul r0, r0, r1
-   mov pc, lr
+   mul r0, r0, r1 // Multiply the fist two arguments.
+   add r0,r0,r2	  // Add in the third argument.
+   
+   mov pc, lr	  // Return to calling routine.
    
 .end asmFunction
    
